@@ -12,7 +12,7 @@ class PortScanner():
     ports = []
 
 
-    def __init__(self, ports, ip, host ):
+    def __init__(self, ports, ip_or_host, flag):
         """
         Initalize class with
         parameters.
@@ -26,15 +26,14 @@ class PortScanner():
 
         self.ports = ports
 
-        if host == None and ip == None:
+        if ip_or_host == None:
             print "Please provide an ip or a host."
-            print "If you provide both ip will be used"
-        elif host != None and ip == None:
-            self.host = host
+        elif flag == "host":
+            self.host = ip_or_host
             self.grab_ip()
             self.port_scanner()
         else: 
-            self.ip = ip
+            self.ip = ip_or_host
             self.port_scanner()
         
 
