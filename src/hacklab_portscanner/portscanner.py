@@ -12,20 +12,27 @@ class PortScanner():
     ports = []
 
 
-    def __init__(self, ports, host=None, ip=None):
+    def __init__(self, ports, ip, host ):
         """
         Initalize class with
         parameters.
         ip and host are optional in that
         one or the other should be provided.
         """
-        print "here" 
+
+        if len(ports) < 1:
+            print "No ports specified"
+            return False
+
+        self.ports = ports
+
         if host == None and ip == None:
             print "Please provide an ip or a host."
             print "If you provide both ip will be used"
         elif host != None and ip == None:
             self.host = host
             self.grab_ip()
+            self.port_scanner()
         else: 
             self.ip = ip
             self.port_scanner()
@@ -48,9 +55,10 @@ class PortScanner():
         Scan target port
         """
 
+        print "Scanning ip %s" % self.ip
         for port in self.ports:
             print "Scanning port %s" % port
-            p = Process(target=self.socket_connector, args=(port))
+            p = Process(target=self.socket_connector, args=(str(port),))
             p.start()
             p.join()
 
@@ -71,5 +79,4 @@ class PortScanner():
         except:
             print "%s closed" % port
         finally:
-            connection.close()
-    
+            connection.close() 
