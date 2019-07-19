@@ -21,13 +21,13 @@ class PortScanner():
         """
 
         if len(ports) < 1:
-            print "No ports specified"
+            print ("No ports specified")
             return False
 
         self.ports = ports
 
         if ip_or_host == None:
-            print "Please provide an ip or a host."
+            print ("Please provide an ip or a host.")
         elif flag == "host":
             self.host = ip_or_host
             self.grab_ip()
@@ -45,7 +45,7 @@ class PortScanner():
         try:
             self.ip = socket.gethostbyname(self.host)
         except:
-            print "Unknown host: Unable to obtain IP address for %s " % self.host
+            print ("Unknown host: Unable to obtain IP address for %s " % self.host)
             return False
 
     
@@ -54,9 +54,9 @@ class PortScanner():
         Scan target port
         """
 
-        print "Scanning ip %s" % self.ip
+        print ("Scanning ip %s" % self.ip)
         for port in self.ports:
-            print "Scanning port %s" % port
+            print ("Scanning port %s" % port)
             p = Process(target=self.socket_connector, args=(str(port),))
             p.start()
             p.join()
@@ -73,9 +73,9 @@ class PortScanner():
             connection.connect((self.ip, port))
             connection.send('HELO\r\n')
             results = connection.recv(100)
-            print "%s open" % port
-            print results
+            print ("%s open" % port)
+            print (results)
         except:
-            print "%s closed" % port
+            print ("%s closed" % port)
         finally:
             connection.close() 

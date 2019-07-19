@@ -15,12 +15,12 @@ long_description = read('README.md')
 
 setup(
     name='hacklab_portscanner',
-    version='0.0.1',
+    version='3.0.0',
     description='Port scanner',
     long_description=long_description,
-    maintainer='patamechanix',
+    maintainer='rpigu-i',
     license='MIT',
-    url='https://github.com/patamechanix/python_hacklab_portscanner',
+    url='https://github.com/rpigu-i/python_hacklab_portscanner',
     package_dir={'': 'src'},
     include_package_data=True,
     packages=find_packages('src'),

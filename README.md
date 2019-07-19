@@ -1,5 +1,7 @@
 ### python-hacklab_portscanner
-A Python port scanner package 
+A Python port scanner package.
+
+Python 3.x version.
 
 ## Install
 
