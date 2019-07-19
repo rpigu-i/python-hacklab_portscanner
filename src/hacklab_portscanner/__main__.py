@@ -1,5 +1,5 @@
 import argparse
-from portscanner import PortScanner
+from .portscanner import PortScanner
 
 def main():
     """
