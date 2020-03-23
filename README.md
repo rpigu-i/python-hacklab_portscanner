@@ -9,7 +9,7 @@ Clone the repository and install via pip:
 
 ```
 
-pip install -e python-hackerlab_portscanner
+pip3 install -e python-hackerlab_portscanner
 
 ```
 
@@ -22,7 +22,7 @@ To run the scanner use the following command.
 
 ```
 
-python -m hacklab_portscanner --ports 443  --host mysite.com
+python3 -m hacklab_portscanner --ports 443  --host mysite.com
 
 ```
 
